@@ -1,0 +1,15 @@
+Algoritmo sin_titulo
+	definir cafePreparado, taza, azucar Como cadena
+	Definir salida como cadena
+	Escribir "que taza quieres"
+	leer taza
+	Escribir "como quieres el cafe"
+	leer cafePreparado
+	Escribir "cuanto azucar quieres"
+	leer azucar
+	Escribir "paso 1:Colocar ", taza, " en la mesa"
+	Escribir "paso 2:Servir el cafe ", cafePreparado " dentro de la", taza
+	Escribir "paso 3:agregar ", azucar,"a la", taza
+	Escribir "paso 4:mezclar la taza"
+	Escribir "cafe listo para tomae"
+FinAlgoritmo
