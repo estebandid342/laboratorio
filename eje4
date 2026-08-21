@@ -1,0 +1,10 @@
+Algoritmo sin_titulo
+	Definir base, altura, area Como Real
+	Escribir "introduce la altua del rectangulo"
+	Leer altura
+	Escribir "introduce la base del rectangulo"
+	leer base
+	area = base * altura
+	Escribir "tu area es ", area 
+	
+FinAlgoritmo
