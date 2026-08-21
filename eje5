@@ -1,0 +1,13 @@
+Algoritmo sin_titulo
+	Definir precio, cantidad, descuento, valortotal, valorfinal Como Real
+	Definir compras como cadena 
+	Escribir "que preducto compraste"
+	leer compras
+	Escribir "que precio tiene el producto"
+	leer precio
+	Escribir "cuantos produtos estas llevando"
+	leer cantidad
+	valortotal=precio * cantidad
+	valorfinal=valortotal*90/100
+	Escribir "el costo total de ", compras," es de ", valortotal,"$ pero con es descuento es de ", valorfinal,"$"
+FinAlgoritmo
