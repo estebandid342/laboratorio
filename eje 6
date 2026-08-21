@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main() {
+double base;
+double altura;
+double area;
+cout << "ingresa la base";
+cin >>base;
+cout << "ingresa la altura";
+cin >>altura;
+area = base * altura;
+cout << "el area es de"
+<<area<<endl;
+    return 0;
+}
