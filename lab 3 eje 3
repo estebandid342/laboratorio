@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    string nombre, carrera;
+    double edad, semestre, nota;
+
+    cout << "ingresa tu nombre completo";
+    cin >> nombre;
+
+    cout << "ingresa tu edad";
+    cin >> edad;
+
+    cout << "ingresa tu carrera";
+    cin >> carrera;
+
+     cout << "ingresa el semestre en el que estas";
+     cin >> semestre;
+
+     cout << "ingresa la nota final";
+     cin >> nota;
+
+    cout << "tu nombre es: "
+    << nombre << endl;
+
+     cout << "tu edad es: "
+     << edad << endl;
+ if (edad < 18){
+    cout << "el estudiantes es menor" << endl;
+   }
+   else{
+    cout << "el estudiante es mayor" << endl;
+   }
+   cout << endl;
+    cout << "tu carrera es: "
+     << carrera << endl;
+
+    cout << "tu semestre es: "
+     << semestre << endl;
+
+       cout << "tu nota es: "
+     << nota << endl;
+     if (nota < 51){
+    cout << "el estudiante reprobo" << endl;
+   }
+   else{
+    cout << "el estudiante aprobo" << endl;
+   }
+return 0;
+}
