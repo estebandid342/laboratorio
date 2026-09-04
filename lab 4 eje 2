@@ -2,29 +2,50 @@
 #include <string>
 using namespace std;
 int main (){
-    double a, b;
+    double a, b, c;
     string name;
-    cout << "Introduce tu nombre";
+    cout << "Introduce tu nombre: ";
     cin >> name;
-    cout << "Introduce tu gasto de la compra";
+    cout << "Introduce tu gasto de la compra: ";
     cin >> a;
     if( a <= 100){
-        cout << "Tu compra es de " << a << "sin descuento" << endl;
+        cout << "Tu nombre es: " << name << endl;
+        cout << "Categoria: Sin descuento " << endl;
+        cout << "Sub total:Bs " << a << endl;
+        cout << "descuento aplicado: 0" << endl;
+        cout << "Total a pagar:Bs " << a << endl;
     }
     else{
         if(100 < a && a <= 500){
              b =a - ( a *0.05);
-            cout << "Tu compra es de " << b << "Descuento de bronce bronce" << endl;
+             c = a * 0.05;
+            cout << "Tu nombre es: " << name << endl;
+        cout << "Categoria: Descuento de bronce " << endl;
+        cout << "Sub total:Bs " << a << endl;
+        cout << "descuento aplicado:Bs " << c << endl;
+        cout << "Total a pagar:Bs " << b << endl;
         }
         else{
                 if(500 < a && a <= 1000){
                     b =a - ( a *0.10);
-            cout << "Tu compra es de" << b << "Descuento de plata" << endl;
+                         b =a - ( a *0.05);
+             c = a * 0.10;
+            cout << "Tu nombre es: " << name << endl;
+        cout << "Categoria: Descuento de plata " << endl;
+        cout << "Sub total:Bs " << a << endl;
+        cout << "descuento aplicado:Bs " << c << endl;
+        cout << "Total a pagar:Bs " << b << endl;
                 }
                 else{
                     if(a > 1000){
                          b =a-( a *0.15);
-            cout << "Tu compra es de " << b << "Descuento de oro" << endl;
+                         b =a - ( a *0.05);
+             c = a * 0.15;
+            cout << "Tu nombre es: " << name << endl;
+        cout << "Categoria: Descuento de oro " << endl;
+        cout << "Sub total:Bs " << a << endl;
+        cout << "descuento aplicado:Bs " << c << endl;
+        cout << "Total a pagar:Bs " << b << endl;
                     }
                 }
 }
