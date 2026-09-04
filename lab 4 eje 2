@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main (){
+    double a, b;
+    string name;
+    cout << "Introduce tu nombre";
+    cin >> name;
+    cout << "Introduce tu gasto de la compra";
+    cin >> a;
+    if( a <= 100){
+        cout << "Tu compra es de " << a << "sin descuento" << endl;
+    }
+    else{
+        if(100 < a && a <= 500){
+             b =a - ( a *0.05);
+            cout << "Tu compra es de " << b << "Descuento de bronce bronce" << endl;
+        }
+        else{
+                if(500 < a && a <= 1000){
+                    b =a - ( a *0.10);
+            cout << "Tu compra es de" << b << "Descuento de plata" << endl;
+                }
+                else{
+                    if(a > 1000){
+                         b =a-( a *0.15);
+            cout << "Tu compra es de " << b << "Descuento de oro" << endl;
+                    }
+                }
+}
+    }
+}
