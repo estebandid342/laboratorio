@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double combustible = 50;
+    double consumido;
+    double totalConsumido = 0;
+    int entregas = 0;
+
+    while (combustible > 10) {
+        cout << "Ingrese los litros consumidos en la entrega: ";
+        cin >> consumido;
+
+        if (consumido <= 0 || consumido > combustible) {
+            cout << "Cantidad de combustible no valida." << endl;
+        } else {
+            combustible -= consumido;
+            totalConsumido += consumido;
+            entregas++;
+        }
+    }
+
+    cout << "\n--- RESUMEN DEL RECORRIDO ---" << endl;
+    cout << "Cantidad de entregas realizadas: " << entregas << endl;
+    cout << "Total de combustible consumido: " << totalConsumido << " litros" << endl;
+    cout << "Combustible restante: " << combustible << " litros" << endl;
+    cout << "Debe cargar combustible" << endl;
+
+    return 0;
+}
