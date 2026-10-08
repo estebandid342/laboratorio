@@ -1,0 +1,16 @@
+int main(){
+    int n;
+    cout << "introduce un numero";
+    cin >> n;
+    if(n>0){
+        int i = 0;
+        while(n > 0){
+            int u = n % 10;
+            i = (i * 10)+u;
+            n = n/10;
+        }
+        cout<<"la suma es de " << i << endl;
+    }else{
+        cout<<"intetar de nuevo";
+    }
+    }
