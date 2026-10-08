@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Ingrese un numero: ";
+    cin >> n;
+    if (n < 0) {
+        n = -n;
+    }
+    int contadorPares = 0;
+    if (n == 0) {
+        contadorPares = 1;
+    }
+
+    while (n > 0) {
+        int digito = n % 10; // Extrae el último dígito
+        if (digito % 2 == 0) {
+            contadorPares++;
+        }
+
+        n /= 10; // Elimina el último dígito
+    }
+
+    cout << "La cantidad de digitos pares es: " << contadorPares << endl;
+
+    return 0;
+}
