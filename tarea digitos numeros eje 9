@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int pin;
+    cout << "Ingrese el PIN: ";
+    cin >> pin;
+
+    int n = pin;
+
+    if (n < 0) {
+        n = -n;
+    }
+
+    int contadorDigitos = 0;
+    int tieneConsecutivos = 0;
+    int ultimoDigito = -1;
+
+    if (n == 0) {
+        contadorDigitos = 1;
+    }
+
+    while (n > 0) {
+        int digito = n % 10;
+
+        if (digito == ultimoDigito) {
+            tieneConsecutivos = 1;
+        }
+
+        ultimoDigito = digito;
+        contadorDigitos++;
+        n /= 10;
+    }
+
+    if (contadorDigitos == 4 && tieneConsecutivos == 0) {
+        cout << "El PIN es valido." << endl;
+    } else {
+        cout << "El PIN NO es valido." << endl;
+    }
+
+    return 0;
+}
