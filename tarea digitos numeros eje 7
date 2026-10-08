@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese el numero de uso digital: ";
+    cin >> numero;
+
+    int n = numero;
+
+    if (n < 0) {
+        n = -n;
+    }
+
+    int totalHoras = 0;
+    int appsMas5Horas = 0;
+    int cantidadApps = 0;
+
+    if (n == 0) {
+        cantidadApps = 1;
+    }
+
+    while (n > 0) {
+        int digito = n % 10;
+        totalHoras += digito;
+        if (digito > 5) {
+            appsMas5Horas++;
+        }
+        cantidadApps++;
+        n /= 10;
+    }
+
+    double promedio = (double)totalHoras / cantidadApps;
+
+    cout << "Total de horas: " << totalHoras << endl;
+    cout << "Apps con mas de 5 horas: " << appsMas5Horas << endl;
+    cout << "Promedio de horas por app: " << promedio << endl;
+
+    return 0;
+}
