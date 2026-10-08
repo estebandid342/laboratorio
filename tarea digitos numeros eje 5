@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int n = numero;
+
+    if (n < 0) {
+        n = -n;
+    }
+
+    int complemento = 0;
+    int multiplicador = 1;
+
+    if (n == 0) {
+        complemento = 9;
+    }
+
+    while (n > 0) {
+        int digito = n % 10;
+        int digitoComplemento = 9 - digito;
+        complemento += digitoComplemento * multiplicador;
+        multiplicador *= 10;
+        n /= 10;
+    }
+
+    cout << "El complemento a 9 es: " << complemento << endl;
+
+    return 0;
+}
