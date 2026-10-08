@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese el codigo numerico: ";
+    cin >> numero;
+
+    int umbral;
+    cout << "Ingrese el valor minimo para la suma: ";
+    cin >> umbral;
+
+    int n = numero;
+
+    if (n < 0) {
+        n = -n;
+    }
+
+    int suma = 0;
+    int cantidadPares = 0;
+
+    if (n == 0) {
+        cantidadPares = 1;
+    }
+
+    while (n > 0) {
+        int digito = n % 10;
+        suma += digito;
+
+        if (digito % 2 == 0) {
+            cantidadPares++;
+        }
+
+        n /= 10;
+    }
+
+    if (cantidadPares >= 2 && suma > umbral) {
+        cout << "El codigo es seguro." << endl;
+    } else {
+        cout << "El codigo NO es seguro." << endl;
+    }
+
+    return 0;
+}
