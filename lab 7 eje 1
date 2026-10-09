@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+// Función para leer las 5 ventas individuales usando referencias (&)
+void leerVentas(double &v1, double &v2, double &v3, double &v4, double &v5) {
+    cout << "Ingrese la venta del Día 1: ";
+    cin >> v1;
+    cout << "Ingrese la venta del Día 2: ";
+    cin >> v2;
+    cout << "Ingrese la venta del Día 3: ";
+    cin >> v3;
+    cout << "Ingrese la venta del Día 4: ";
+    cin >> v4;
+    cout << "Ingrese la venta del Día 5: ";
+    cin >> v5;
+}
+
+
+void procesarVentas(double v1, double v2, double v3, double v4, double v5, double &total, double &promedio, int &diasSuperiores) {
+
+    total = v1 + v2 + v3 + v4 + v5;
+
+
+    promedio = total / 5.0;
+
+
+    diasSuperiores = 0;
+    if (v1 > promedio) diasSuperiores++;
+    if (v2 > promedio) diasSuperiores++;
+    if (v3 > promedio) diasSuperiores++;
+    if (v4 > promedio) diasSuperiores++;
+    if (v5 > promedio) diasSuperiores++;
+}
+
+
+void mostrarResultados(double total, double promedio, int diasSuperiores) {
+    cout << "\n--- RESULTADOS DEL ANÁLISIS ---" << endl;
+    cout << "Total = " << total << ";" << endl;
+    cout << "Promedio = " << promedio << ";" << endl;
+    cout << "Días superiores al promedio = " << diasSuperiores << "." << endl;
+}
+
+int main() {
+
+    double venta1, venta2, venta3, venta4, venta5;
+    double total = 0;
+    double promedio = 0;
+    int diasSuperiores = 0;
+
+
+    leerVentas(venta1, venta2, venta3, venta4, venta5);
+    procesarVentas(venta1, venta2, venta3, venta4, venta5, total, promedio, diasSuperiores);
+    mostrarResultados(total, promedio, diasSuperiores);
+
+    return 0;
+}
