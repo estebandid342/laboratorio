@@ -4,13 +4,23 @@ using namespace std;
 
 double leerNota(int numeroEvaluacion) {
     double nota;
+    bool error;
     do {
         cout << "Nota " << numeroEvaluacion << " (0-100): ";
         cin >> nota;
-        if (nota < 0 || nota > 100) {
+        
+        error = false;
+        if (nota < 0) {
+            error = true;
+        }
+        if (nota > 100) {
+            error = true;
+        }
+        
+        if (error) {
             cout << "Error. Ingrese de nuevo: ";
         }
-    } while (nota < 0 || nota > 100);
+    } while (error);
     return nota;
 }
 
