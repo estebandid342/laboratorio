@@ -1,0 +1,62 @@
+#include <iostream>
+
+using namespace std;
+
+int leerNumero() {
+    int n;
+    do {
+        cout << "Numero N: ";
+        cin >> n;
+        if (n <= 0) {
+            cout << "Debe ser mayor a 0: ";
+        }
+    } while (n <= 0);
+    return n;
+}
+
+int sumarHastaN(int n) {
+    int suma = 0;
+    for (int i = 1; i <= n; i++) {
+        suma += i;
+    }
+    return suma;
+}
+
+int contarDigitos(int n) {
+    int contador = 0;
+    int temp = n;
+    if (temp == 0) return 1;
+    while (temp > 0) {
+        temp /= 10;
+        contador++;
+    }
+    return contador;
+}
+
+int sumarDigitos(int n) {
+    int suma = 0;
+    int temp = n;
+    do {
+        suma += temp % 10;
+        temp /= 10;
+    } while (temp > 0);
+    return suma;
+}
+
+void mostrarResultados(int n, int sumaN, int digitos, int sumaDig) {
+    cout << "\nN = " << n << endl;
+    cout << "Suma (for): " << sumaN << endl;
+    cout << "Digitos (while): " << digitos << endl;
+    cout << "Suma digitos (do-while): " << sumaDig << endl;
+}
+
+int main() {
+    int n = leerNumero();
+    int sumaN = sumarHastaN(n);
+    int digitos = contarDigitos(n);
+    int sumaDig = sumarDigitos(n);
+
+    mostrarResultados(n, sumaN, digitos, sumaDig);
+
+    return 0;
+}
