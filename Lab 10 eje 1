@@ -1,0 +1,80 @@
+#include <iostream>
+
+using namespace std;
+
+const int CAPACIDAD_MAXIMA = 100;
+
+int leerCantidadEstudiantes() {
+    int n;
+    do {
+        cout << "Ingrese la cantidad de estudiantes: ";
+        cin >> n;
+        if (n < 1 || n > CAPACIDAD_MAXIMA) {
+            cout << "Error: La cantidad de estudiantes debe estar entre 1 y 100.\n";
+        }
+    } while (n < 1 || n > CAPACIDAD_MAXIMA);
+    return n;
+}
+
+void leerNotas(double notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        do {
+            cout << "Nota estudiante " << (i + 1) << ": ";
+            cin >> notas[i];
+            if (notas[i] < 0 || notas[i] > 100) {
+                cout << "Error: La nota debe estar entre 0 y 100. Intente nuevamente.\n";
+            }
+        } while (notas[i] < 0 || notas[i] > 100);
+    }
+}
+
+void mostrarNotas(const double notas[], int n) {
+    cout << "\nNOTAS REGISTRADAS\n";
+    for (int i = 0; i < n; i++) {
+        cout << notas[i] << " ";
+    }
+    cout << "\n\n";
+}
+
+double calcularPromedio(const double notas[], int n) {
+    double suma = 0.0;
+    for (int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+    return suma / n;
+}
+
+double obtenerMayor(const double notas[], int n) {
+    double mayor = notas[0];
+    for (int i = 1; i < n; i++) {
+        if (notas[i] > mayor) {
+            mayor = notas[i];
+        }
+    }
+    return mayor;
+}
+
+double obtenerMenor(const double notas[], int n) {
+    double menor = notas[0];
+    for (int i = 1; i < n; i++) {
+        if (notas[i] < menor) {
+            menor = notas[i];
+        }
+    }
+    return menor;
+}
+
+int main() {
+    double notas[CAPACIDAD_MAXIMA];
+
+    int N = leerCantidadEstudiantes();
+    leerNotas(notas, N);
+    mostrarNotas(notas, N);
+
+    cout << "Promedio general: " << calcularPromedio(notas, N) << "\n";
+    cout << "Nota mayor: " << obtenerMayor(notas, N) << "\n";
+    cout << "Nota menor: " << obtenerMenor(notas, N) << "\n";
+
+    return 0;
+}
+
