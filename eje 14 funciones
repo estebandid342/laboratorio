@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+
+bool esBisiesto(int ano) {
+    return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+}
+
+int diasDesdeInicio(int dia, int mes, int ano) {
+    int totalDias = dia;
+    int diasPorMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    for (int a = 1; a < ano; ++a) {
+        totalDias += esBisiesto(a) ? 366 : 365;
+    }
+
+    for (int m = 1; m < mes; ++m) {
+        if (m == 2 && esBisiesto(ano)) {
+            totalDias += 29;
+        } else {
+            totalDias += diasPorMes[m];
+        }
+    }
+
+    return totalDias;
+}
+
+void diasTranscurridos(int d1, int m1, int a1, int d2, int m2, int a2) {
+    int total1 = diasDesdeInicio(d1, m1, a1);
+    int total2 = diasDesdeInicio(d2, m2, a2);
+    int diferencia = std::abs(total2 - total1);
+    std::cout << "Dias transcurridos entre las dos fechas: " << diferencia << " dias." << std::endl;
+}
