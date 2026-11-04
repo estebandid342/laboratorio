@@ -9,13 +9,9 @@ long long FAC(int n) {
     return f;
 }
 
-long long Combi(int n, int r) {
-    if (r < 0 || r > n) return 0;
-    return FAC(n) / (FAC(r) * FAC(n - r));
-}
-
 int main() {
     int n = 5, r = 2;
-    cout << "Combi(" << n << ", " << r << ") = " << Combi(n, r) << endl;
+    long long C = FAC(n) / (FAC(r) * FAC(n - r));
+    cout << "C(" << n << ", " << r << ") = " << C << endl;
     return 0;
 }
