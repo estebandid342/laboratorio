@@ -1,0 +1,18 @@
+#include <iostream>
+
+using namespace std;
+
+long long FAC(int n) {
+    if (n < 0) return 0;
+    long long factorial = 1;
+    for (int i = 1; i <= n; i++) {
+        factorial *= i;
+    }
+    return factorial;
+}
+
+int main() {
+    int n = 5;
+    cout << "El factorial de " << n << " es: " << FAC(n) << endl;
+    return 0;
+}
