@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+long long FAC(int n) {
+    long long f = 1;
+    for (int i = 1; i <= n; i++) f *= i;
+    return f;
+}
+
+double POTEN(double x, double y) {
+    return pow(x, y);
+}
+
+double sumaSerie2(int X, int N) {
+    double suma = 0.0;
+    int signo = 1;
+    for (int i = 1; i <= N; i++) {
+        int exponente = 2 * i - 1;
+        suma += signo * (POTEN(X, exponente) / FAC(exponente));
+        signo *= -1;
+    }
+    return suma;
+}
+
+int main() {
+    int X = 2, N = 3;
+    cout << "Suma de la serie alternada: " << sumaSerie2(X, N) << endl;
+    return 0;
+}
