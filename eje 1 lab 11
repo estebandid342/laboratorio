@@ -1,0 +1,135 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const int CAPACIDAD_MAXIMA = 30;
+
+void registrar(int notas[], int n);
+void mostrar(const int notas[], int n);
+float promedio(const int notas[], int n);
+void mayorMenor(const int notas[], int n, int &mayor, int &menor);
+int contarAprobados(const int notas[], int n);
+int buscar(const int notas[], int n, int notaBuscada);
+void actualizar(int notas[], int n);
+
+int main() {
+    int n;
+    int notas[CAPACIDAD_MAXIMA];
+
+    cout << "Cantidad de estudiantes: ";
+    cin >> n;
+    while (n < 1 || n > CAPACIDAD_MAXIMA) {
+        cout << "Cantidad invalida. Ingrese un numero entre 1 y 30: ";
+        cin >> n;
+    }
+
+    registrar(notas, n);
+
+    cout << "\nNotas ingresadas: ";
+    mostrar(notas, n);
+
+    float prom = promedio(notas, n);
+    int mayor, menor;
+    mayorMenor(notas, n, mayor, menor);
+
+    cout << fixed << setprecision(2);
+    cout << "Promedio: " << prom << " | Mayor: " << mayor << " | Menor: " << menor << endl;
+
+    int aprobados = contarAprobados(notas, n);
+    int reprobados = n - aprobados;
+    cout << "Aprobados: " << aprobados << " | Reprobados: " << reprobados << endl;
+
+    int notaBuscada;
+    cout << "Buscar nota: ";
+    cin >> notaBuscada;
+    int pos = buscar(notas, n, notaBuscada);
+    if (pos != -1) {
+        cout << "Buscar nota: " << notaBuscada << " -> Estudiante " << (pos + 1) << endl;
+    } else {
+        cout << "La nota " << notaBuscada << " no existe en el registro." << endl;
+    }
+
+    actualizar(notas, n);
+
+    cout << "Notas actualizadas: ";
+    mostrar(notas, n);
+    cout << "Nuevo promedio: " << promedio(notas, n) << endl;
+
+    return 0;
+}
+
+void registrar(int notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        do {
+            cout << "Ingrese la nota del estudiante " << (i + 1) << " (0-100): ";
+            cin >> notas[i];
+            if (notas[i] < 0 || notas[i] > 100) {
+                cout << "Nota invalida. Debe estar en el rango [0, 100].\n";
+            }
+        } while (notas[i] < 0 || notas[i] > 100);
+    }
+}
+
+void mostrar(const int notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << notas[i] << (i == n - 1 ? "" : " ");
+    }
+    cout << endl;
+}
+
+float promedio(const int notas[], int n) {
+    int suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += notas[i];
+    }
+    return static_cast<float>(suma) / n;
+}
+
+void mayorMenor(const int notas[], int n, int &mayor, int &menor) {
+    mayor = notas[0];
+    menor = notas[0];
+    for (int i = 1; i < n; i++) {
+        if (notas[i] > mayor) mayor = notas[i];
+        if (notas[i] < menor) menor = notas[i];
+    }
+}
+
+int contarAprobados(const int notas[], int n) {
+    int contador = 0;
+    for (int i = 0; i < n; i++) {
+        if (notas[i] >= 51) {
+            contador++;
+        }
+    }
+    return contador;
+}
+
+int buscar(const int notas[], int n, int notaBuscada) {
+    for (int i = 0; i < n; i++) {
+        if (notas[i] == notaBuscada) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void actualizar(int notas[], int n) {
+    int numEstudiante;
+    cout << "Modificar estudiante: ";
+    cin >> numEstudiante;
+    while (numEstudiante < 1 || numEstudiante > n) {
+        cout << "Numero de estudiante invalido. Ingrese un valor entre 1 y " << n << ": ";
+        cin >> numEstudiante;
+    }
+
+    int nuevaNota;
+    cout << "Nueva nota: ";
+    cin >> nuevaNota;
+    while (nuevaNota < 0 || nuevaNota > 100) {
+        cout << "Nota invalida. Debe estar entre 0 y 100: ";
+        cin >> nuevaNota;
+    }
+
+    notas[numEstudiante - 1] = nuevaNota;
+}
