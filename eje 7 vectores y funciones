@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void inicializarNombres(string palabras[]);
+string convertirALetras(int num, const string palabras[]);
+
+int main() {
+    string palabras[21];
+    inicializarNombres(palabras);
+
+    int numero;
+    do {
+        cout << "Ingrese un numero entero entre 0 y 20: ";
+        cin >> numero;
+    } while (numero < 0 || numero > 20);
+
+    string texto = convertirALetras(numero, palabras);
+    cout << "\n" << numero << " -> " << texto << endl;
+
+    return 0;
+}
+
+void inicializarNombres(string palabras[]) {
+    palabras[0]  = "CERO";    palabras[1]  = "UNO";      palabras[2]  = "DOS";
+    palabras[3]  = "TRES";    palabras[4]  = "CUATRO";   palabras[5]  = "CINCO";
+    palabras[6]  = "SEIS";    palabras[7]  = "SIETE";    palabras[8]  = "OCHO";
+    palabras[9]  = "NUEVE";   palabras[10] = "DIEZ";     palabras[11] = "ONCE";
+    palabras[12] = "DOCE";    palabras[13] = "TRECE";    palabras[14] = "CATORCE";
+    palabras[15] = "QUINCE";  palabras[16] = "DIECISEIS";palabras[17] = "DIECISIETE";
+    palabras[18] = "DIECIOCHO";palabras[19]= "DIECINUEVE";palabras[20] = "VEINTE";
+}
+
+string convertirALetras(int num, const string palabras[]) {
+    return palabras[num];
+}
