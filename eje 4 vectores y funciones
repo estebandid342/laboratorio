@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+void invertirEnSegundoVector(const double origen[], double destino[], int n);
+
+int main() {
+    int n;
+    double A[MAX], B[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    cout << "\n-- Lectura del Vector A --\n";
+    leerVector(A, n);
+
+    invertirEnSegundoVector(A, B, n);
+
+    cout << "\nVector A (original sin modificar):\n";
+    mostrarVector(A, n);
+
+    cout << "\nVector B (invertido):\n";
+    mostrarVector(B, n);
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void invertirEnSegundoVector(const double origen[], double destino[], int n) {
+    for (int i = 0; i < n; i++) {
+        destino[i] = origen[n - 1 - i];
+    }
+}
