@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+void contarElementos(const double arr[], int n, int &pos, int &neg, int &ceros);
+
+int main() {
+    int n;
+    double vector[MAX];
+    int pos = 0, neg = 0, ceros = 0;
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    leerVector(vector, n);
+
+    cout << "\nVector ingresado:\n";
+    mostrarVector(vector, n);
+
+    contarElementos(vector, n, pos, neg, ceros);
+
+    cout << "\n-- Resultados del Conteo --\n";
+    cout << "Positivos: " << pos << endl;
+    cout << "Negativos: " << neg << endl;
+    cout << "Ceros    : " << ceros << endl;
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    cout << "Ingrese " << n << " numeros reales:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void contarElementos(const double arr[], int n, int &pos, int &neg, int &ceros) {
+    pos = 0;
+    neg = 0;
+    ceros = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > 0) {
+            pos++;
+        } else if (arr[i] < 0) {
+            neg++;
+        } else {
+            ceros++;
+        }
+    }
+}
