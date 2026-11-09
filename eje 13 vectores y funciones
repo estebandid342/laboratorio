@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(int arr[], int n);
+void mostrarVector(const int arr[], int n);
+void invertirInPlace(int arr[], int n);
+
+int main() {
+    int n;
+    int vector[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    leerVector(vector, n);
+
+    cout << "\nVector antes de invertir:\n";
+    mostrarVector(vector, n);
+
+    invertirInPlace(vector, n);
+
+    cout << "\nVector despues de invertir (in-place):\n";
+    mostrarVector(vector, n);
+
+    return 0;
+}
+
+void leerVector(int arr[], int n) {
+    cout << "Ingrese " << n << " elementos:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void invertirInPlace(int arr[], int n) {
+    for (int i = 0; i < n / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[n - 1 - i];
+        arr[n - 1 - i] = temp;
+    }
+}
