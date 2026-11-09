@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVectorOrdenado(double arr[], int n, char nombre);
+void mostrarVector(const double arr[], int n);
+void intercalarVectores(const double A[], int n, const double B[], int m, double C[]);
+
+int main() {
+    int n, m;
+    double A[MAX], B[MAX], C[MAX * 2];
+
+    do {
+        cout << "Ingrese tamano del vector A (1 a " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+    leerVectorOrdenado(A, n, 'A');
+
+    do {
+        cout << "Ingrese tamano del vector B (1 a " << MAX << "): ";
+        cin >> m;
+    } while (m <= 0 || m > MAX);
+    leerVectorOrdenado(B, m, 'B');
+
+    intercalarVectores(A, n, B, m, C);
+
+    cout << "\nVector A:\n";
+    mostrarVector(A, n);
+
+    cout << "\nVector B:\n";
+    mostrarVector(B, m);
+
+    cout << "\nVector C (intercalado y ordenado):\n";
+    mostrarVector(C, n + m);
+
+    return 0;
+}
+
+void leerVectorOrdenado(double arr[], int n, char nombre) {
+    cout << "Ingrese los " << n << " elementos ORDENADOS ASCENDENTEMENTE para el vector " << nombre << ":\n";
+    for (int i = 0; i < n; i++) {
+        do {
+            cout << nombre << "[" << i << "]: ";
+            cin >> arr[i];
+            if (i > 0 && arr[i] < arr[i - 1]) {
+                cout << " Error: Debe ingresar un valor mayor o igual al anterior (" << arr[i - 1] << ").\n";
+            }
+        } while (i > 0 && arr[i] < arr[i - 1]);
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void intercalarVectores(const double A[], int n, const double B[], int m, double C[]) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < n && j < m) {
+        if (A[i] <= B[j]) {
+            C[k++] = A[i++];
+        } else {
+            C[k++] = B[j++];
+        }
+    }
+
+    while (i < n) {
+        C[k++] = A[i++];
+    }
+
+    while (j < m) {
+        C[k++] = B[j++];
+    }
+}
