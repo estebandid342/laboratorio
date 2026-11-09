@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+double calcularPromedio(const double arr[], int n);
+
+int main() {
+    int n;
+    double vector[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    leerVector(vector, n);
+
+    cout << "\nVector ingresado:\n";
+    mostrarVector(vector, n);
+
+    double promedio = calcularPromedio(vector, n);
+    cout << "\nEl promedio de los elementos es: " << promedio << endl;
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    cout << "Ingrese " << n << " numeros reales:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+double calcularPromedio(const double arr[], int n) {
+    double suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += arr[i];
+    }
+    return suma / n;
+}
