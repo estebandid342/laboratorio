@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+void ordenarBurbuja(double arr[], int n);
+
+int main() {
+    int n;
+    double vector[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    leerVector(vector, n);
+
+    cout << "\nVector antes de ordenar:\n";
+    mostrarVector(vector, n);
+
+    ordenarBurbuja(vector, n);
+
+    cout << "\nVector despues de ordenar (Burbuja):\n";
+    mostrarVector(vector, n);
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    cout << "Ingrese " << n << " numeros:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void ordenarBurbuja(double arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                double temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
