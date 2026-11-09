@@ -1,0 +1,114 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n, char nombre);
+void mostrarVector(const double arr[], int n);
+void concatenarVectores(const double A[], int n, const double B[], int m, double C[]);
+
+int main() {
+    int n, m;
+    double A[MAX], B[MAX], C[MAX * 2];
+
+    do {
+        cout << "Ingrese el tamano del vector A (1 a " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+    leerVector(A, n, 'A');
+
+    do {
+        cout << "Ingrese el tamano del vector B (1 a " << MAX << "): ";
+        cin >> m;
+    } while (m <= 0 || m > MAX);
+    leerVector(B, m, 'B');
+
+    concatenarVectores(A, n, B, m, C);
+
+    cout << "\nVector A:\n";
+    mostrarVector(A, n);
+
+    cout << "\nVector B:\n";
+    mostrarVector(B, m);
+
+    cout << "\nVector C (concatenado):\n";
+    mostrarVector(C, n + m);
+
+    return 0;
+}
+
+void leerVector(double arr[], int n, char nombre) {
+    cout << "Ingrese los elementos del vector " << nombre << ":\n";
+    for (int i = 0; i < n; i++) {
+        cout << nombre << "[" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void concatenarVectores(const double A[], int n, const double B[], int m, double C[]) {
+    for (int i = 0; i < n; i++) {
+        C[i] = A[i];
+    }
+    for (int j = 0### Ejercicio 1: Valor máximo
+
+```cpp
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+double obtenerMaximo(const double arr[], int n);
+
+int main() {
+    int n;
+    double vector[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    leerVector(vector, n);
+
+    cout << "\nVector ingresado:\n";
+    mostrarVector(vector, n);
+
+    double maximo = obtenerMaximo(vector, n);
+    cout << "\nEl valor maximo es: " << maximo << endl;
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    cout << "Ingrese " << n << " numeros:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+double obtenerMaximo(const double arr[], int n) {
+    double maxVal = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+    return maxVal;
+}
