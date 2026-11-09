@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int MAX = 100;
+
+void leerAlumnos(string nombres[], double notas[], int n);
+void ordenarPorNotaDescendente(string nombres[], double notas[], int n);
+void mostrarTop3(const string nombres[], const double notas[], int n);
+
+int main() {
+    int n;
+    string nombres[MAX];
+    double notas[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de estudiantes (n >= 3 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n < 3 || n > MAX);
+
+    leerAlumnos(nombres, notas, n);
+    ordenarPorNotaDescendente(nombres, notas, n);
+    mostrarTop3(nombres, notas, n);
+
+    return 0;
+}
+
+void leerAlumnos(string nombres[], double notas[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "\nEstudiante #" << i + 1 << ":\n";
+        cout << "Nombre: ";
+        cin >> nombres[i];
+        do {
+            cout << "Nota (0 a 100): ";
+            cin >> notas[i];
+        } while (notas[i] < 0 || notas[i] > 100);
+    }
+}
+
+void ordenarPorNotaDescendente(string nombres[], double notas[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (notas[j] < notas[j + 1]) {
+                double tempNota = notas[j];
+                notas[j] = notas[j + 1];
+                notas[j + 1] = tempNota;
+
+                string tempNombre = nombres[j];
+                nombres[j] = nombres[j + 1];
+                nombres[j + 1] = tempNombre;
+            }
+        }
+    }
+}
+
+void mostrarTop3(const string nombres[], const double notas[], int n) {
+    cout << "\n=== TOP 3 MEJORES NOTAS ===\n";
+    int limite = (n < 3) ? n : 3;
+    for (int i = 0; i < limite; i++) {
+        cout << i + 1 << ". " << nombres[i] << " - Nota: " << notas[i] << endl;
+    }
+}
