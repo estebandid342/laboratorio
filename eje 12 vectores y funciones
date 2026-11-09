@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(int arr[], int n);
+void mostrarVector(const int arr[], int n);
+bool existe(const int arr[], int tam, int valor);
+int eliminarDuplicados(const int A[], int n, int B[]);
+
+int main() {
+    int n;
+    int A[MAX], B[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n > 0 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    leerVector(A, n);
+
+    cout << "\nVector original A:\n";
+    mostrarVector(A, n);
+
+    int tamB = eliminarDuplicados(A, n, B);
+
+    cout << "\nVector B sin duplicados (tamano " << tamB << "):\n";
+    mostrarVector(B, tamB);
+
+    return 0;
+}
+
+void leerVector(int arr[], int n) {
+    cout << "Ingrese " << n << " numeros enteros:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+bool existe(const int arr[], int tam, int valor) {
+    for (int i = 0; i < tam; i++) {
+        if (arr[i] == valor) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int eliminarDuplicados(const int A[], int n, int B[]) {
+    int tamB = 0;
+    for (int i = 0; i < n; i++) {
+        if (!existe(B, tamB, A[i])) {
+            B[tamB] = A[i];
+            tamB++;
+        }
+    }
+    return tamB;
+}
