@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+double absPropio(double valor);
+double calcularMayorDiferencia(const double A[], int n, double &elem1, double &elem2);
+
+int main() {
+    int n;
+    double A[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n >= 2 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n < 2 || n > MAX);
+
+    leerVector(A, n);
+
+    cout << "\nVector ingresado:\n";
+    mostrarVector(A, n);
+
+    double e1, e2;
+    double maxDif = calcularMayorDiferencia(A, n, e1, e2);
+
+    cout << "\nMayor diferencia absoluta: " << maxDif << endl;
+    cout << "Generada por los elementos consecutivos: " << e1 << " y " << e2 << endl;
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    cout << "Ingrese " << n << " numeros reales:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+double absPropio(double valor) {
+    return (valor < 0) ? -valor : valor;
+}
+
+double calcularMayorDiferencia(const double A[], int n, double &elem1, double &elem2) {
+    double maxDif = absPropio(A[1] - A[0]);
+    elem1 = A[0];
+    elem2 = A[1];
+
+    for (int i = 1; i < n - 1; i++) {
+        double difActual = absPropio(A[i + 1] - A[i]);
+        if (difActual > maxDif) {
+            maxDif = difActual;
+            elem1 = A[i];
+            elem2 = A[i + 1];
+        }
+    }
+    return maxDif;
+}
