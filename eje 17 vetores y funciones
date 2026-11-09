@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 90;
+
+void generarFibonacci(long long fib[], int n);
+void mostrarFibonacci(const long long fib[], int n);
+
+int main() {
+    int n;
+    long long fib[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de terminos a generar (1 a " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    generarFibonacci(fib, n);
+
+    cout << "\nPrimeros " << n << " terminos de la serie de Fibonacci:\n";
+    mostrarFibonacci(fib, n);
+
+    return 0;
+}
+
+void generarFibonacci(long long fib[], int n) {
+    if (n >= 1) fib[0] = 0;
+    if (n >= 2) fib[1] = 1;
+
+    for (int k = 2; k < n; k++) {
+        fib[k] = fib[k - 1] + fib[k - 2];
+    }
+}
+
+void mostrarFibonacci(const long long fib[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << "F[" << i << "] = " << fib[i] << endl;
+    }
+}
