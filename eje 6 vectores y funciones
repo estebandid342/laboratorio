@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+const int MAX = 100;
+
+void leerVector(double arr[], int n);
+void mostrarVector(const double arr[], int n);
+void calcularPromediosConsecutivos(const double A[], int n, double B[]);
+
+int main() {
+    int n;
+    double A[MAX], B[MAX];
+
+    do {
+        cout << "Ingrese la cantidad de elementos (n >= 3 y <= " << MAX << "): ";
+        cin >> n;
+    } while (n < 3 || n > MAX);
+
+    leerVector(A, n);
+
+    cout << "\nVector original A:\n";
+    mostrarVector(A, n);
+
+    calcularPromediosConsecutivos(A, n, B);
+
+    cout << "\nVector de promedios de 3 elementos consecutivos (tamano " << n - 2 << "):\n";
+    mostrarVector(B, n - 2);
+
+    return 0;
+}
+
+void leerVector(double arr[], int n) {
+    cout << "Ingrese " << n << " numeros reales:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento [" << i << "]: ";
+        cin >> arr[i];
+    }
+}
+
+void mostrarVector(const double arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void calcularPromediosConsecutivos(const double A[], int n, double B[]) {
+    for (int i = 0; i < n - 2; i++) {
+        B[i] = (A[i] + A[i + 1] + A[i + 2]) / 3.0;
+    }
+}
