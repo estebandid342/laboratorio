@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int totalMinutos, dias, horas, minutos, resto;
+
+    cout << "Minutos: ";
+    cin >> totalMinutos;
+
+    dias = totalMinutos / 1440;
+    resto = totalMinutos % 1440;
+    horas = resto / 60;
+    minutos = resto % 60;
+
+    cout << "Dias: " << dias << endl;
+    cout << "Horas: " << horas << endl;
+    cout << "Minutos: " << minutos << endl;
+
+    return 0;
+}
