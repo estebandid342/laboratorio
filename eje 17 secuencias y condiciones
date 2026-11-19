@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a, b, c, d, e, f, det, detX, detY, x, y;
+
+    cout << "A: ";
+    cin >> a;
+    cout << "B: ";
+    cin >> b;
+    cout << "C: ";
+    cin >> c;
+    cout << "D: ";
+    cin >> d;
+    cout << "E: ";
+    cin >> e;
+    cout << "F: ";
+    cin >> f;
+
+    det = a * e - b * d;
+    detX = c * e - b * f;
+    detY = a * f - c * d;
+
+    if (det != 0) {
+        x = detX / det;
+        y = detY / det;
+        cout << "X: " << x << endl;
+        cout << "Y: " << y << endl;
+    } else {
+        if (detX == 0 && detY == 0 && !(a == 0 && b == 0 && c != 0) && !(d == 0 && e == 0 && f != 0)) {
+            cout << "Infinitas soluciones" << endl;
+        } else {
+            cout << "Sin solucion" << endl;
+        }
+    }
+
+    return 0;
+}
