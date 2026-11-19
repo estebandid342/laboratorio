@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char nombre;
+    float salario, aguinaldo;
+    int meses;
+
+    cout << "Inicial nombre: ";
+    cin >> nombre;
+    cout << "Salario mensual: ";
+    cin >> salario;
+    cout << "Meses trabajados: ";
+    cin >> meses;
+
+    if (meses == 12) {
+        aguinaldo = salario;
+    } else {
+        aguinaldo = (salario * meses) / 12;
+    }
+
+    cout << "Trabajador: " << nombre << endl;
+    cout << "Aguinaldo: " << aguinaldo << endl;
+
+    return 0;
+}
