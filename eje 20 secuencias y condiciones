@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float kwh, monto;
+
+    cout << "Consumo kWh: ";
+    cin >> kwh;
+
+    if (kwh == 0) {
+        cout << "SIN CONSUMO REGISTRADO" << endl;
+    } else if (kwh > 0 && kwh <= 100) {
+        monto = kwh * 0.30 + 8.00;
+        cout << "Categoria basica" << endl;
+        cout << "Monto: " << monto << endl;
+    } else if (kwh <= 300) {
+        monto = kwh * 0.50 + 8.00;
+        cout << "Categoria media" << endl;
+        cout << "Monto: " << monto << endl;
+    } else if (kwh <= 600) {
+        monto = kwh * 0.75 + 8.00;
+        cout << "Categoria alta" << endl;
+        cout << "Monto: " << monto << endl;
+    } else {
+        monto = kwh * 1.10 + 8.00;
+        cout << "Categoria industrial" << endl;
+        cout << "Monto: " << monto << endl;
+    }
+
+    return 0;
+}
