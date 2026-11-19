@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, f0 = 1, f1 = 1, fn;
+
+    cout << "N: ";
+    cin >> n;
+
+    if (n == 0 || n == 1) {
+        fn = 1;
+    } else {
+        for (int i = 2; i <= n; i++) {
+            fn = f0 + f1;
+            f0 = f1;
+            f1 = fn;
+        }
+    }
+
+    cout << "Fibonacci: " << fn << endl;
+
+    return 0;
+}
