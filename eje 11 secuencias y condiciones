@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float r, h, areaLateral, areaTotal, volumen;
+    const float PI = 3.1416;
+
+    cout << "Radio: ";
+    cin >> r;
+    cout << "Altura: ";
+    cin >> h;
+
+    areaLateral = 2 * PI * r * h;
+    areaTotal = 2 * PI * r * (r + h);
+    volumen = PI * r * r * h;
+
+    cout << "Area lateral: " << areaLateral << endl;
+    cout << "Area total: " << areaTotal << endl;
+    cout << "Volumen: " << volumen << endl;
+
+    return 0;
+}
