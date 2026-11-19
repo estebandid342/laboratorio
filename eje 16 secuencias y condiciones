@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double c, t, m, g;
+    int n;
+
+    cout << "Capital inicial: ";
+    cin >> c;
+    cout << "Tasa anual: ";
+    cin >> t;
+    cout << "Anios: ";
+    cin >> n;
+
+    m = c * pow(1 + (t / 12.0 / 100.0), n * 12);
+    g = m - c;
+
+    cout << "Monto acumulado: " << m << endl;
+    cout << "Ganancia neta: " << g << endl;
+
+    return 0;
+}
