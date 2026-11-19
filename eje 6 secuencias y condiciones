@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float num1, num2;
+
+    cout << "Numero 1: ";
+    cin >> num1;
+    cout << "Numero 2: ";
+    cin >> num2;
+
+    if (num1 > num2) {
+        cout << "Mayor: " << num1 << endl;
+    } else {
+        cout << "Mayor: " << num2 << endl;
+    }
+
+    return 0;
+}
