@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x, s = 0, pot = 1, fac = 1;
+    int n;
+
+    cout << "X: ";
+    cin >> x;
+    cout << "N: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        pot = pot * x;
+        fac = fac * i;
+        s = s + (pot / fac);
+    }
+
+    cout << "Suma: " << s << endl;
+
+    return 0;
+}
