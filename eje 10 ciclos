@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x, s = 0, pot, fac;
+    int n, signo = 1;
+
+    cout << "X: ";
+    cin >> x;
+    cout << "N: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i += 2) {
+        pot = 1;
+        fac = 1;
+        for (int j = 1; j <= i; j++) {
+            pot = pot * x;
+            fac = fac * j;
+        }
+        s = s + signo * (pot / fac);
+        signo = -signo;
+    }
+
+    cout << "Suma: " << s << endl;
+
+    return 0;
+}
