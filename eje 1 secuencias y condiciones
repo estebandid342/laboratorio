@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char nombre, carrera;
+    int edad, semestre;
+
+    cout << "Nombre: ";
+    cin >> nombre;
+    cout << "Edad: ";
+    cin >> edad;
+    cout << "Carrera: ";
+    cin >> carrera;
+    cout << "Semestre: ";
+    cin >> semestre;
+
+    cout << "Nombre: " << nombre << endl;
+    cout << "Edad: " << edad << endl;
+    cout << "Carrera: " << carrera << endl;
+    cout << "Semestre: " << semestre << endl;
+
+    return 0;
+}
