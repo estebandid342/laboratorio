@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int cPollo, cCarne, cQueso, cRefresco, cAgua;
+    float sPollo, sCarne, sQueso, sRefresco, sAgua, total;
+
+    cout << "Saltena de pollo: ";
+    cin >> cPollo;
+    cout << "Saltena de carne: ";
+    cin >> cCarne;
+    cout << "Empanada de queso: ";
+    cin >> cQueso;
+    cout << "Refresco: ";
+    cin >> cRefresco;
+    cout << "Agua mineral: ";
+    cin >> cAgua;
+
+    sPollo = cPollo * 3.50;
+    sCarne = cCarne * 4.00;
+    sQueso = cQueso * 3.00;
+    sRefresco = cRefresco * 5.00;
+    sAgua = cAgua * 3.00;
+    total = sPollo + sCarne + sQueso + sRefresco + sAgua;
+
+    cout << "Subtotal pollo: " << sPollo << endl;
+    cout << "Subtotal carne: " << sCarne << endl;
+    cout << "Subtotal queso: " << sQueso << endl;
+    cout << "Subtotal refresco: " << sRefresco << endl;
+    cout << "Subtotal agua: " << sAgua << endl;
+    cout << "Total: " << total << endl;
+
+    return 0;
+}
