@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float monto, descuento, total;
+
+    cout << "Monto: ";
+    cin >> monto;
+
+    if (monto > 100) {
+        descuento = monto * 0.10;
+    } else {
+        descuento = 0;
+    }
+
+    total = monto - descuento;
+
+    cout << "Total: " << total << endl;
+
+    return 0;
+}
