@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    double c, t, cuota, montoTotal, interesTotal;
+    int n;
+
+    cout << "Capital: ";
+    cin >> c;
+    cout << "Tasa mensual: ";
+    cin >> t;
+    cout << "Cuotas: ";
+    cin >> n;
+
+    cuota = c * (t * pow(1 + t, n)) / (pow(1 + t, n) - 1);
+    montoTotal = cuota * n;
+    interesTotal = montoTotal - c;
+
+    cout << "Cuota mensual: " << cuota << endl;
+    cout << "Monto total: " << montoTotal << endl;
+    cout << "Interes total: " << interesTotal << endl;
+
+    return 0;
+}
