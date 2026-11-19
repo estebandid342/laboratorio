@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int cantidad, total;
+
+    cout << "Cantidad: ";
+    cin >> cantidad;
+
+    total = cantidad * 12;
+
+    cout << "Total: " << total << endl;
+
+    return 0;
+}
